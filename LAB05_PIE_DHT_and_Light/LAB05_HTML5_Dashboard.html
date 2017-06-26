@@ -1,0 +1,74 @@
+<script src="https://cdn.netpie.io/microgear.js"></script>
+
+<script type="text/javascript">
+	const APPID = "YOUR_APPID";			// กำหนดค่า appid
+	const KEY = "YOUR_KEY";				// กำหนดค่า key
+	const SECRET = "YOUR_SECRET";		// กำหนดค่า secret
+	const ALIAS = "html5";			// กำหนดชื่อ device สำหรับติดต่อสื่องสาร และแสดงตัวตนที่ออนไลน์อยู่
+
+	var microgear = Microgear.create({
+		key: KEY,
+		secret: SECRET,
+		alias : ALIAS
+	});
+	
+	function press(id, topic){
+		var state = document.getElementById(id).value;
+		if(state=="OFF"){
+			microgear.publish(topic,"1");
+		}else if(state=="ON"){
+			microgear.publish(topic,"0");
+		}
+	}
+
+	microgear.on('message',function(topic,msg) {
+		console.log(topic+" : "+msg);
+		if(topic == "/"+APPID+"/gearname/mega2560"){
+			if(msg==1) document.getElementById("light").value = "ON";
+			else document.getElementById("light").value = "OFF";
+		}
+		
+		if(topic == "/"+APPID+"/relay/state"){
+			if(msg==1) document.getElementById("relay").value = "ON";
+			else document.getElementById("relay").value = "OFF";
+		}
+		
+		if(topic == "/"+APPID+"/dht"){
+			var m = msg.split(",");
+			if(m.length==3) {
+				document.getElementById("humid").innerHTML = m[0];
+				document.getElementById("temp").innerHTML = m[1];
+				document.getElementById("vlight").innerHTML = Math.ceil(m[2]/10.24);
+			}
+		}
+	});
+
+	microgear.on('connected', function() {
+		microgear.setAlias(ALIAS);
+		
+		// subscribe all topic
+		//microgear.subscribe("/#");
+		
+		// subscribe some topic
+		microgear.subscribe("/gearname/mega2560");
+		microgear.subscribe("/relay/state");
+		microgear.subscribe("/dht");
+		
+		document.getElementById("data").innerHTML = "Now I am connected with netpie...";
+	});
+
+	microgear.on('disconnected', function() {
+		document.getElementById("data").innerHTML = "Disconnected with netpie...";
+	});
+	
+	microgear.connect(APPID);
+	
+</script>
+
+<div id="data">_____</div>
+<br>
+Light : <input type="button" value="OFF" id="light" onclick="press('light','/gearname/nodewifi')"/><br>
+Relay : <input type="button" value="OFF" id="relay" onclick="press('relay','/relay')"/><br>
+Humidity : <span id="humid"></span> %RH<br>
+Temperature : <span id="temp"></span> *C<br>
+Light value : <span id="vlight"></span> %

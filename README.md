@@ -13,6 +13,7 @@
 
 ### Part 4: Freeboard
 - https://goo.gl/nQbQLW
+- เพิ่มเติม NETPIE Freeboard - https://goo.gl/b6QRJX
 
 ### Part 5: Conclusion
 - https://goo.gl/K2QL5G

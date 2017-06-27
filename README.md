@@ -3,19 +3,19 @@
 ## Presentations
 
 ### Part 1: NETPIE Introduction
-https://goo.gl/488B34
+- https://goo.gl/488B34
 
 ### Part 2: IOT Development with NETPIE
-https://goo.gl/H8Ht96
+- https://goo.gl/H8Ht96
 
 ### Part 3: Feed
--
+- https://goo.gl/6h8Z6N
 
 ### Part 4: Freeboard
--
+- https://goo.gl/nQbQLW
 
 ### Part 5: Conclusion
-https://goo.gl/K2QL5G
+- https://goo.gl/K2QL5G
 
 ## Install Arduino IDE
 

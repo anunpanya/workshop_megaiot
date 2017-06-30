@@ -47,7 +47,7 @@ Download driver
    - ESP8266 Microgear 
    - DHT Sensor library by Adrafruit
    - Adafruit Unified Sensor by Adrafruit 
-   และกด Install
+  และกด Install
 3. เมื่อติดตั้งเสร็จทั้ง 3 library แล้ว ก็กด Close
     
 ## รายละเอียดอุปกรณ์

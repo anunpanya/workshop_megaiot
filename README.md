@@ -47,8 +47,8 @@ Download driver
    - ESP8266 Microgear 
    - DHT Sensor library by Adrafruit
    - Adafruit Unified Sensor by Adrafruit 
-  และกด Install
-3. เมื่อติดตั้งเสร็จทั้ง 3 library แล้ว ก็กด Close
+3. และกด Install
+4. เมื่อติดตั้งเสร็จทั้ง 3 library แล้ว ก็กด Close
     
 ## รายละเอียดอุปกรณ์
 keyestudio New sensor kit with 2560 R3
